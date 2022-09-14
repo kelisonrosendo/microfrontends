@@ -15,6 +15,12 @@ registerApplication({
   activeWhen: (location) => location.pathname === '/vue-single',
 });
 
+registerApplication({
+  name: "@kr/vue-header",
+  app: () => System.import("@kr/vue-header"),
+  activeWhen: ['/'],
+});
+
 start({
   urlRerouteOnly: true,
 });

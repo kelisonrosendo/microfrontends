@@ -36,3 +36,16 @@ registerApplication({
   activeWhen: (location) => location.pathname === '/vue-single',
 });
 ```
+
+**Config webpack necessária em cada microfrontend**
+```bash
+# Inserir no arquivo: vue.config.js
+module.exports = defineConfig({
+  transpileDependencies: true,
+  configureWebpack: {
+    output: {
+      libraryTarget: 'system',
+    },
+  },
+})
+```
