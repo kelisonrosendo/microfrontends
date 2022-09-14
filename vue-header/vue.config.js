@@ -5,5 +5,6 @@ module.exports = defineConfig({
     output: {
       libraryTarget: 'system',
     },
+    externals: ['vue-router']
   },
 })
