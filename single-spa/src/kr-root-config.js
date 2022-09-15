@@ -1,26 +1,28 @@
 import { registerApplication, start } from "single-spa";
+import {
+  constructApplications,
+  constructRoutes,
+  constructLayoutEngine,
+} from "single-spa-layout";
+import microfrontendLayout from "./microfrontend-layout.html";
 
-registerApplication({
-  name: "@single-spa/welcome",
-  app: () =>
-    System.import(
-      "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js"
-    ),
-    activeWhen: (location) => location.pathname === '/',
+const data = {
+  loaders: {},
+  props: {},
+  errors: {},
+};
+
+const routes = constructRoutes(microfrontendLayout, data);
+
+const applications = constructApplications({
+  routes,
+  loadApp({ name }) {
+    return System.import(name);
+  },
 });
 
-registerApplication({
-  name: "@kr/vue-single",
-  app: () => System.import("@kr/vue-single"),
-  activeWhen: (location) => location.pathname === '/vue-single',
-});
+const layoutEngine = constructLayoutEngine({ routes, applications });
 
-registerApplication({
-  name: "@kr/vue-header",
-  app: () => System.import("@kr/vue-header"),
-  activeWhen: ['/'],
-});
-
-start({
-  urlRerouteOnly: true,
-});
+applications.forEach(registerApplication);
+layoutEngine.activate();
+start();
