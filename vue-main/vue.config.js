@@ -4,7 +4,7 @@ module.exports = defineConfig({
   configureWebpack: {
     output: {
       libraryTarget: 'system',
-      filename: 'js/kr-vue-header.js'
+      filename: 'js/kr-vue-main.js'
     },
     externals: ['vue-router']
   },

@@ -1,14 +1,14 @@
 <template>
   <div id="app">
-    <vue-header />
+    <vue-menu />
   </div>
 </template>
 
 <script>
-import VueHeader from "@/components/vue-header.vue";
+import VueMenu from "@/components/vue-menu.vue";
 
 export default {
   name: "App",
-  components: { VueHeader },
+  components: { VueMenu },
 };
 </script>

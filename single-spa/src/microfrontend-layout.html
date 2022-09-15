@@ -2,12 +2,15 @@
   <nav>
     <application name="@kr/vue-header"></application>
   </nav>
+  <aside>
+    <application name="@kr/vue-menu"></application>
+  </aside>
   <main>
     <route path="vue-single">
       <application name="@kr/vue-single"></application>
     </route>
     <route default>
-      Default page single-spa
+      <application name="@kr/vue-main"></application>
     </route>
   </main>
 </single-spa-router>

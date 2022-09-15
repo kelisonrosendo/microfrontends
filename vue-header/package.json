@@ -10,8 +10,11 @@
   },
   "dependencies": {
     "core-js": "^3.8.3",
+    "sass": "^1.54.9",
+    "sass-loader": "^13.0.2",
     "single-spa-vue": "^2.1.0",
-    "vue": "^2.6.14"
+    "vue": "^2.6.14",
+    "vuetify": "^2.6.10"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
