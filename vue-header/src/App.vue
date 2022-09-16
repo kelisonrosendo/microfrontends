@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <vue-header />
+    <v-app>
+      <vue-header />
+    </v-app>
   </div>
 </template>
 
@@ -12,3 +14,9 @@ export default {
   components: { VueHeader },
 };
 </script>
+
+<style scoped lang="scss">
+:deep(.v-application--wrap) {
+  min-height: fit-content;
+}
+</style>
