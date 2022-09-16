@@ -7,10 +7,10 @@
   </aside>
   <main>
     <route path="vue-single">
-      <application name="@kr/vue-single"></application>
+      <application name="@kr/vue-single" loader="customLoader" error="customError"></application>
     </route>
     <route default>
-      <application name="@kr/vue-main"></application>
+      <application name="@kr/vue-main" loader="customLoader" error="customError"></application>
     </route>
   </main>
 </single-spa-router>
