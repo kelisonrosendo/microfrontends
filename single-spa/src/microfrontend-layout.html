@@ -1,16 +1,60 @@
 <single-spa-router mode="hash">
-  <nav>
-    <application name="@kr/vue-header"></application>
-  </nav>
-  <aside>
-    <application name="@kr/vue-menu"></application>
-  </aside>
-  <main>
-    <route path="vue-single">
-      <application name="@kr/vue-single" loader="customLoader" error="customError"></application>
-    </route>
-    <route default>
-      <application name="@kr/vue-main" loader="customLoader" error="customError"></application>
-    </route>
-  </main>
+  <style>
+    html,
+    body {
+      height: 100%;
+      overflow-y: auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 256px 1fr;
+    }
+
+    .vue-header {
+      grid-area: nav;
+    }
+
+    .vue-menu {
+      grid-area: aside;
+    }
+
+    .vue-main {
+      margin-top: 64px;
+      grid-area: main;
+    }
+
+    .grid-template-areas {
+      grid-template-areas:
+        'nav nav'
+        'aside main'
+      ;
+    }
+
+    @media (max-width: 1264px) {
+      .grid-template-areas {
+        grid-template-areas:
+          'nav nav'
+          'main main'
+        ;
+      }
+    }
+  </style>
+
+  <div class="grid grid-template-areas">
+    <nav class="vue-header">
+      <application name="@kr/vue-header" loader="customLoader" error="customError"></application>
+    </nav>
+    <aside class="vue-menu">
+      <application name="@kr/vue-menu" loader="customLoader" error="customError"></application>
+    </aside>
+    <main class="vue-main">
+      <route path="vue-single">
+        <application name="@kr/vue-single" loader="customLoader" error="customError"></application>
+      </route>
+      <route default>
+        <application name="@kr/vue-main" loader="customLoader" error="customError"></application>
+      </route>
+    </main>
+  </div>
 </single-spa-router>

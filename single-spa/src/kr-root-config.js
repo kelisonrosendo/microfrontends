@@ -9,14 +9,14 @@ import microfrontendLayout from "./microfrontend-layout.html";
 const data = {
   loaders: {
     customLoader: `
-      <div style="position: absolute; top: 100px; right: 50px">
+      <div style="padding: 10px;">
         <h1>Carregando...</h1>
       </div>
     `,
   },
   errors: {
     customError: `
-      <div style="position: absolute; top: 100px; right: 50px">
+      <div style="padding: 10px;">
         <h1>Ops... Algo deu errado!</h1>
       </div>
     `

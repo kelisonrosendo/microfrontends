@@ -1,8 +1,9 @@
 
 <template>
-  <v-main class="mt-16">
+  <v-main>
     <v-container fluid>
-      <h1>Home</h1>
+      <h2>vue-main</h2>
+      <p>Esta é a página inicial da aplicação!</p>
     </v-container>
   </v-main>
 </template>

@@ -1,11 +1,23 @@
 <template>
-  <v-navigation-drawer app clipped color="grey lighten-2">
-    <v-container fluid class="mt-16"> Menu </v-container>
+  <v-navigation-drawer v-model="showMenu" app clipped color="grey lighten-2">
+    <v-container fluid class="mt-16">
+      <h2>vue-menu</h2>
+    </v-container>
   </v-navigation-drawer>
 </template>
 
 <script>
 export default {
   name: "VueMenu",
+  data() {
+    return {
+      showMenu: null,
+    };
+  },
+  mounted() {
+    window.addEventListener("vue-header/showMenu", () => {
+      this.showMenu = !this.showMenu;
+    });
+  },
 };
 </script>
