@@ -1,9 +1,10 @@
-<single-spa-router mode="hash">
+<single-spa-router>
   <style>
     html,
     body {
       height: 100%;
       overflow-y: auto;
+      font-family: 'Roboto';
     }
 
     .grid {
@@ -43,17 +44,25 @@
 
   <div class="grid grid-template-areas">
     <nav class="vue-header">
-      <application name="@kr/vue-header" loader="customLoader" error="customError"></application>
+      <application name="@kr/vue-header"></application>
     </nav>
     <aside class="vue-menu">
-      <application name="@kr/vue-menu" loader="customLoader" error="customError"></application>
+      <application name="@kr/vue-menu"></application>
     </aside>
     <main class="vue-main">
-      <route path="vue-single">
-        <application name="@kr/vue-single" loader="customLoader" error="customError"></application>
-      </route>
-      <route default>
+      <route path="vue-main">
         <application name="@kr/vue-main" loader="customLoader" error="customError"></application>
+      </route>
+      <route path="react-main">
+        <application name="@kr/react-main" loader="customLoader" error="customError"></application>
+      </route>
+      <route path="angular-main">
+        <application name="@kr/angular-main" loader="customLoader" error="customError"></application>
+      </route>
+      <redirect from="/" to="/vue-main">
+      </redirect>
+      <route default>
+        404
       </route>
     </main>
   </div>

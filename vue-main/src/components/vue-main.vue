@@ -1,9 +1,13 @@
 
 <template>
   <v-main>
-    <v-container fluid>
+    <v-container fluid class="mx-auto text-center">
       <h2>vue-main</h2>
-      <p>Esta é a página inicial da aplicação!</p>
+      <br />
+      <img src="../assets/logo.svg" alt="Logo Vue" width="200" />
+      <br />
+      <br />
+      <p>Este é um microfrontend em <b>Vue (2.6.14).</b></p>
     </v-container>
   </v-main>
 </template>

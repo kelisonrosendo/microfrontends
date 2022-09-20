@@ -15,7 +15,9 @@
       "imports": {
         "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
         "vue": "https://unpkg.com/vue@2.6.14/dist/vue.js",
-        "vue-router": "https://unpkg.com/vue-router@3.6.5/dist/vue-router.js"
+        "vue-router": "https://unpkg.com/vue-router@3.6.5/dist/vue-router.js",
+        "react": "https://unpkg.com/react@18/umd/react.production.min.js",
+        "react-dom": "https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
       }
     }
   </script>
@@ -28,11 +30,15 @@
         "@kr/vue-header": "//localhost:9001/js/kr-vue-header.js",
         "@kr/vue-menu": "//localhost:9002/js/kr-vue-menu.js",
         "@kr/vue-main": "//localhost:9003/js/kr-vue-main.js",
-        "@kr/vue-single": "//localhost:9004/js/kr-vue-single.js"
+        "@kr/react-main": "//localhost:9004/kr-react-main.js",
+        "@kr/angular-main": "//localhost:9005/main.js"
       }
     }
   </script>
   <% } %>
+
+  <script src="https://cdn.jsdelivr.net/npm/zone.js@0.10.3/dist/zone.min.js"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@2.2.0/dist/import-map-overrides.js"></script>
   <% if (isLocal) { %>
   <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.js"></script>
@@ -43,12 +49,10 @@
   <% } %>
 </head>
 <body>
-  <noscript>
-    You need to enable JavaScript to run this app.
-  </noscript>
   <script>
     System.import('@kr/root-config');
-  </script>
+  </script>  
+  
   <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
 </body>
 </html>
