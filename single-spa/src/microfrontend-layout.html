@@ -21,6 +21,7 @@
     }
 
     .vue-main {
+      padding: 10px;
       margin-top: 64px;
       grid-area: main;
     }
@@ -32,14 +33,14 @@
       ;
     }
 
-    @media (max-width: 1264px) {
+    /* @media (max-width: 1264px) {
       .grid-template-areas {
         grid-template-areas:
           'nav nav'
           'main main'
         ;
       }
-    }
+    } */
   </style>
 
   <div class="grid grid-template-areas">
@@ -62,7 +63,7 @@
       <redirect from="/" to="/vue-main">
       </redirect>
       <route default>
-        404
+        <h2>404 - Página não encontrada!</h2>
       </route>
     </main>
   </div>

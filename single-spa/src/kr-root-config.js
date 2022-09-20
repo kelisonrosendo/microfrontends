@@ -6,55 +6,24 @@ import {
 } from "single-spa-layout";
 import microfrontendLayout from "./microfrontend-layout.html";
 
+window.addEventListener("vue-menu/showMenu", ({ detail }) => {
+  let elem = document.getElementsByClassName("grid")[0];
+
+  if (detail.value) {
+    elem.style.gridTemplateAreas = '"nav nav" "aside main"';
+  } else {
+    elem.style.gridTemplateAreas = '"nav nav" "main main"';
+  }
+});
+
 const data = {
   loaders: {
-    customLoader: `
-      <div style="padding: 10px;">
-        <h1>Carregando...</h1>
-      </div>
-    `,
+    customLoader: '<h2>Carregando...</h2>',
   },
   errors: {
-    customError: `
-      <div style="padding: 10px;">
-        <h1>Ops... Algo deu errado!</h1>
-      </div>
-    `
-  }
+    customError: '<h2>Ops... Algo deu errado!</h2>',
+  },
 }
-
-
-
-// const routes = constructRoutes({
-//   mode: "history",
-//   redirects: { '/': '/vue-main' },
-//   routes: [
-//     {
-//       type: 'route', path: 'vue-main', routes: [
-//         { type: 'application', name: '@kr/vue-header' },
-//         { type: 'application', name: '@kr/vue-menu' },
-//         { type: 'application', name: '@kr/vue-main', loader: customLoader }
-//       ]
-//     },
-//     {
-//       type: 'route', path: 'react-main', routes: [
-//         { type: 'application', name: '@kr/vue-header' },
-//         { type: 'application', name: '@kr/vue-menu' },
-//         { type: 'application', name: '@kr/react-main' }
-//       ]
-//     },
-//     {
-//       type: 'route', path: 'angular-main', routes: [
-//         { type: 'application', name: '@kr/vue-header' },
-//         { type: 'application', name: '@kr/vue-menu' },
-//         { type: 'application', name: '@kr/angular-main' }
-//       ]
-//     }
-//   ]
-// })
-
-
-
 
 const routes = constructRoutes(microfrontendLayout, data);
 
